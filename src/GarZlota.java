@@ -62,13 +62,17 @@ public class GarZlota extends Game {
           //  else {ifClicked = false;}
         }
 
-       // Summary summary = new Summary(getID());
+
+
+
     }
 
     public void render(GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics g) throws SlickException {
 
         drawObject(g, rainbowMovedEffect, Main.garZlota.getID());
         spacePressed();
+        //drawLeprechanum(ifJump);
+
 
         if(clicked){
 

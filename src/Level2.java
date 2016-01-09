@@ -45,11 +45,14 @@ public class Level2 extends Game{
         }
 
 
+
+
     }
     @Override
     public void render(GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics g) throws SlickException {
         drawObject(g, rainbowMovedEffect, Main.level2.getID());
         spacePressed();
+
     }
 
     //the enter method is called whenever you transition into the state; restart parameters

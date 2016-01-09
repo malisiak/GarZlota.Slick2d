@@ -29,7 +29,8 @@ public class Leprechaun extends Image {
        super("graph/krasnal.png");
 
         this.setX(x);
-        this.setY(y);
+       // this.setY(y);
+        this.y = y;
 
 
     }
@@ -41,6 +42,19 @@ public class Leprechaun extends Image {
     public void setY(float y){
         this.y=y;
     }
+
+  /*  public void setY(float y, String kierunek){
+        if ( kierunek.equals("up")){
+            while(getY()>y){
+                this.y = y - 2;
+
+            }
+        }
+        else if(kierunek.equals("down")){
+            while(getY()<y)
+                this.y=y+2;
+        }
+    }*/
 
     public float getY(){
         return y;

@@ -30,6 +30,7 @@ public class Main extends StateBasedGame {
 
 
         // add scene
+        this.addState(menu);
         this.addState(ranking);
         this.addState(summaryAl2);
         this.addState(menu);

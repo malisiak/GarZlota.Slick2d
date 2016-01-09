@@ -45,6 +45,10 @@ public abstract class Game extends BasicGameState {
 
     static boolean clicked = false;
 
+    int timeKeyDown = 0;
+
+    boolean ifJump = false;
+
 
 
     // Function is responsible for object's initialization
@@ -234,16 +238,38 @@ public abstract class Game extends BasicGameState {
     }
 
     // draw leprechaun depends on key pressed or not
-    public void spacePressed(){
-        if (input.isKeyDown(Input.KEY_SPACE)) {
+   /* public boolean spacePressed(int delta) {
 
+        timeKeyDown = timeKeyDown + delta;
+        System.out.println(timeKeyDown);
+
+        if (input.isKeyDown(Input.KEY_SPACE) && timeKeyDown > 2000) {
+            timeKeyDown = 0;
+            return ifJump = true;
+
+        }
+        else{ return ifJump = false;}
+    }
+    public void drawLeprechanum(boolean ifJump){
+
+        if(ifJump==true){
             leprechaun.draw(leprechaun.getX(), leprechaun.jump(190f));
 
         } else {
             leprechaun.setY(400);
             leprechaun.draw(leprechaun.getX(), leprechaun.getY());
+
+        }
+    }*/
+    public void spacePressed(){
+        if (input.isKeyDown(Input.KEY_SPACE)){
+            leprechaun.draw(leprechaun.getX(), leprechaun.jump(190f));
+        }
+        else {
+            leprechaun.setY(400);
+            leprechaun.draw(leprechaun.getX(), leprechaun.getY());
+
         }
     }
 
     }// end class Game
-
