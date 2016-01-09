@@ -37,6 +37,27 @@ public class Menu extends Scenery {
         drawButton(g,"WYJDZ", 290, 630);
         drawButton(g,"RANKING", 565, 630);
         drawButton(g,"GRAJ", 880, 630);
+
+        // text on the screen
+        g.setFont(font.chooseFont(50));
+        g.setColor(Color.white);
+        g.drawString("GAR ZLOTA", Main.WIDTH/2 -170 , Main.HEIGHT/2  -210);
+
+        g.setFont(font.chooseFont(30));
+        g.drawString("Pomoz krasnalowi zdobyc jak najwieksza ", 300f, 220f);
+        g.drawString("ilosc zlota, by zapelnic caly gar!", 365f, 255f);
+        g.drawString("By zbierac monety skacz krasnalem", 330f, 305f);
+        g.drawString("przyciskajac klawisz spacji.", 395f, 340f);
+        g.drawString("Wypatruj 4-listnych koniczyn,", 375f, 390f);
+        g.drawString("ale unikaj tych z 3 listkami!", 393f, 425f);
+        g.drawString("Uwazaj na zderzenie z ptakiem,", 363f, 470f);
+        g.drawString(" ktore spowoduje koniec gry!", 375f, 505f);
+
+        g.setColor(Color.orange);
+        g.setFont(font.chooseFont(40));
+        g.drawString("P O W O D Z E N I A !", Main.WIDTH/2 -240 , 555f);
+
+
     }
 
     @Override

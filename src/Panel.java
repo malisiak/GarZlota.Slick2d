@@ -34,12 +34,13 @@ public class Panel {
         pot = new Image("graph/garZlotaPanel.png");
 
 
-        g.drawImage(string1, 20, 20);
-        //g.setFont(font.trueTypeFont(font.chooseAwtFont(1, 30)));
-       // g.drawString("POZIOM 1", 20,20);
-       // g.setColor(new Color(31,147,255));
-       // g.drawString("MENU ", 20,650);
+        //g.drawImage(string1, 20, 20);
+        g.setFont(font.chooseFont(20));
+        g.drawString("POZIOM 1", 20,20);
+        g.setColor(new Color (31, 147, 255));
+        g.drawString("MENU ", 20,650);
 
+        g.setColor(Color.white);
         g.drawImage(clover3, 825, 10);
         g.drawString(amountOfClover3 +"", 880, 60);
 

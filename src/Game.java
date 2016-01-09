@@ -1,4 +1,7 @@
+import org.lwjgl.input.Mouse;
 import org.newdawn.slick.*;
+import org.newdawn.slick.fills.GradientFill;
+import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.state.transition.FadeInTransition;
@@ -40,6 +43,8 @@ public abstract class Game extends BasicGameState {
 
     protected Summary summary;
 
+    static boolean clicked = false;
+
 
 
     // Function is responsible for object's initialization
@@ -75,6 +80,53 @@ public abstract class Game extends BasicGameState {
     }
 
 
+    public void mousePressed(StateBasedGame sbg, GameContainer gc, int mouseX, int mouseY) {
+
+        // button MENU
+        if ((32 < mouseX && mouseX < 40) && (30 < mouseY && mouseY < 84)) {
+            System.out.println(" klikasz na mnie");
+            // pause the game
+             gc.pause();
+            //sbg.enterState(Main.menu.getID(), new FadeOutTransition(new Color(100, 180, 255)), new FadeInTransition(new Color(100, 180, 255)));
+            clicked = true; }
+
+            // button TAK in warnings
+           else if ((501 < Mouse.getX() && Mouse.getX() < 588) && (254 < Mouse.getY() && Mouse.getY() < 313)) {
+
+                sbg.enterState(Main.menu.getID(), new FadeOutTransition(new Color(100, 180, 255)), new FadeInTransition(new Color(100, 180, 255)));
+                System.out.println(" jestem tu");
+            }
+
+            else if ((733 < Mouse.getX() && Mouse.getX() < 813) && (268 < Mouse.getY() && Mouse.getY() < 313)) {
+
+                clicked = false;
+                gc.resume();
+            }
+
+
+            // return clicked = false;
+        }
+
+    public static void drawWindow(Graphics g){
+
+                Rectangle rect = new Rectangle(Main.WIDTH/2 - 250, Main.HEIGHT/2 - 100, 500, 200);
+        GradientFill gf = new GradientFill(Main.WIDTH/2, Main.HEIGHT/2, new Color(31, 147, 255),Main.WIDTH/2, 400, Color.white);
+
+                g.fill(rect, gf);
+                g.setColor(Color.white);
+                g.drawString("Czy jestes pewny, ze chcesz przejsc do ", Main.WIDTH/2 - 230,Main.HEIGHT/2 - 80);
+                g.drawString("MENU? ",Main.WIDTH/2 - 40, Main.HEIGHT/2 - 40);
+                Scenery.drawButton(g, "TAK",Main.WIDTH/2 - 130, Main.HEIGHT/2 + 40 );
+                Scenery.drawButton(g, "NIE",Main.WIDTH/2 + 100, Main.HEIGHT/2 + 40 );
+
+        System.out.println("x:: " + Mouse.getX() + " y; "+ Mouse.getY());
+
+            }
+
+
+
+
+
     public void gameTime(GameContainer gc, StateBasedGame sbg, int delta, int stateID){
 
 
@@ -90,6 +142,8 @@ public abstract class Game extends BasicGameState {
             else if(stateID == Main.level2.getID()){
 
                 try {
+                    System.out.println("Do pliku scoreLevel1 " + Summary.scoreLevel1);
+                    System.out.println("Do pliku scoreLevel2 " + SummaryAfterLevel2.scoreLevel2);
                     SaveReadFile.Save();
                 }
                 catch (IOException e){
@@ -103,7 +157,7 @@ public abstract class Game extends BasicGameState {
         }
 
     }
-// dodaj stateID!!!!!!
+
     // create flying elements from class Elements, remove them when are outside game window, and check collision
     public void createFlyingElements( int sceneID, int delta, StateBasedGame sbg) throws SlickException{
 
@@ -119,7 +173,7 @@ public abstract class Game extends BasicGameState {
             add new random imagine to collection from class Elements
             Parameters: String path (is draw by Element's function - choose(int i)), element's position x, element's position y
              */
-            if (sceneID == Main.garZlota.getID()) {
+            if (sceneID == Main.garZlota.getID() && clicked==false) {
                 elements.add(new Elements(Elements.choose(random.nextInt(10)), Main.WIDTH, (Main.HEIGHT / 3.45f + random.nextInt(60))));
             }
             else if (sceneID == Main.level2.getID()){
@@ -131,7 +185,11 @@ public abstract class Game extends BasicGameState {
         //!!!!!!!!!!!!!!  10! zamien na zmienna zalezna od poziomu!!!!!!
         // responsible for element's movement in x position
         for (Elements element : elements) {
-            Elements.moveElement(element, sceneID);
+            if(clicked){
+                Elements.stopElement(element, element.getX());
+            }
+            else {Elements.moveElement(element, sceneID);}
+
         }
 
         // remove elements, which are invisible and check collision between leprechaun and elements

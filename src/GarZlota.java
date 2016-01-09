@@ -1,3 +1,4 @@
+import org.lwjgl.input.Mouse;
 import org.newdawn.slick.*;
 import org.newdawn.slick.Image;
 import org.newdawn.slick.state.BasicGameState;
@@ -17,6 +18,7 @@ import org.newdawn.slick.state.transition.FadeOutTransition;
 public class GarZlota extends Game {
 
     Image bird;
+    boolean ifClicked = false;
 
     public void init(GameContainer gc, StateBasedGame stateBasedGame) throws SlickException {
 
@@ -52,6 +54,14 @@ public class GarZlota extends Game {
             rainbowMovedEffect = 1000;
         }
 
+        if(input.isMousePressed(Input.MOUSE_LEFT_BUTTON)) {
+            mousePressed(sbg,gc, Mouse.getX(), Mouse.getY());
+            //{
+           //     ifClicked = true;
+           // }
+          //  else {ifClicked = false;}
+        }
+
        // Summary summary = new Summary(getID());
     }
 
@@ -59,6 +69,12 @@ public class GarZlota extends Game {
 
         drawObject(g, rainbowMovedEffect, Main.garZlota.getID());
         spacePressed();
+
+        if(clicked){
+
+            gameContainer.pause();
+            drawWindow (g);
+        }
 
 
     }

@@ -48,7 +48,9 @@ public class GameStatus {
     // return score, which player win in game
     public static int gameScore(){
         gameScore = Summary.scoreLevel1 + SummaryAfterLevel2.scoreLevel2;
-        System.out.println("Koncowe: "+ gameScore);
+//        System.out.println("scoreLevel1 " + Summary.scoreLevel1);
+//        System.out.println("scoreLevel2 " + SummaryAfterLevel2.scoreLevel2);
+//        System.out.println("Koncowe: "+ gameScore);
         return gameScore;
 
     }

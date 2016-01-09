@@ -34,7 +34,7 @@ public class GameOverWindow extends Scenery {
 
         g.setColor(Color.white);
         // set type and size of font
-        g.setFont(font.trueTypeFont(font.chooseAwtFont(1, 50)));
+        g.setFont(font.chooseFont(50));
         g.drawString("GAME OVER", Main.WIDTH/3 + 30, Main.HEIGHT/2);
 
     }

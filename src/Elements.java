@@ -41,6 +41,9 @@ public class Elements extends Image {
     }
 
     // function responsible for element's movement
+    public static void stopElement (Elements element, float getPosition){
+        element.setX(getPosition);
+    }
     public static void moveElement(Elements element, int sceneID){
         if ( sceneID == Main.garZlota.getID()) {
             element.setX(element.getX() - 8);

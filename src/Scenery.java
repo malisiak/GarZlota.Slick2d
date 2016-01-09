@@ -17,7 +17,7 @@ public abstract class Scenery extends BasicGameState {
     // rainbow object
     protected Rainbow rainbow;
     // font object
-    protected ChooseFont font;
+    protected static ChooseFont font;
     // input object
     protected Input input;
     // image object
@@ -54,14 +54,14 @@ public abstract class Scenery extends BasicGameState {
     }
 
     // function set color and size of font, set string in rectangle and its position, draw rectangle and string
-    public void drawButton(Graphics g, String str, int xpos, int ypos) {
+    public static void drawButton(Graphics g, String str, int xpos, int ypos) {
 
-        g.setFont(font.trueTypeFont(font.chooseAwtFont(1, 30)));
+        g.setFont(font.chooseFont(30));
 
         // Get the width of the given string
-        int widthStr = font.getWidthStr(str, font.trueTypeFont(font.chooseAwtFont(1, 30)));
-        // System.out.println(str + " " + widthStr);
-        int heightStr = font.getWidthStr(str, font.trueTypeFont(font.chooseAwtFont(1, 30)));
+        int widthStr = font.getWidthStr(str, font.chooseFont(30));
+         //System.out.println(str + " " + widthStr);
+        int heightStr = font.getWidthStr(str, font.chooseFont(30));
        // System.out.println(str + " " + heightStr);
         g.setColor(new Color(31, 147, 255));
 
@@ -103,27 +103,60 @@ public abstract class Scenery extends BasicGameState {
             // buttons from clas Ranking
         } else if (nameClass.equals("Ranking")) {
 
+            // button WYJDZ
+            if (286 < Mouse.getX() && Mouse.getX() < 420 && 30 < Mouse.getY() && Mouse.getY() < 73) {
+
+                System.exit(0);}
+
+            // button MENU
+            if (578 < Mouse.getX() && Mouse.getX() < 692 && 30 < Mouse.getY() && Mouse.getY() < 73) {
+
+                sbg.enterState(Main.menu.getID(), new FadeOutTransition(new Color(100, 180, 255)), new FadeInTransition(new Color(100, 180, 255)));
+            }
+
+            // button GRAJ
+            if (872 < Mouse.getX() && Mouse.getX() < 980 && 30 < Mouse.getY() && Mouse.getY() < 73) {
+
+                sbg.enterState(Main.garZlota.getID(), new FadeOutTransition(new Color(100, 180, 255)), new FadeInTransition(new Color(100, 180, 255)));
+            }
 
             // buttons from clas Summary
         } else if (nameClass.equals("Summary")) {
+
             // button DALEJ
             if (790 < Mouse.getX() && Mouse.getX() < 940 && 30 < Mouse.getY() && Mouse.getY() < 73) {
 
                 sbg.enterState(Main.level2.getID(), new FadeOutTransition(new Color(100, 180, 255)), new FadeInTransition(new Color(100, 180, 255)));
-
             }
+        }
+
+        else if (nameClass.equals("SummaryAfterLevel2")) {
+
+                // button MENU
+                if (473 < Mouse.getX() && Mouse.getX() < 588 && 30 < Mouse.getY() && Mouse.getY() < 73) {
+
+                    sbg.enterState(Main.menu.getID(), new FadeOutTransition(new Color(100, 180, 255)), new FadeInTransition(new Color(100, 180, 255)));
+                }
+
+                // buttons WYJDZ
+                if (691 < Mouse.getX() && Mouse.getX() < 831 && 30 < Mouse.getY() && Mouse.getY() < 73) {
+
+                   System.exit(0);
+                }
+
             // buttons from clas GameOverWindows
-        } else if (nameClass.equals("GameOverWindow")){
-                // buttons MENU
+        } else if (nameClass.equals("GameOverWindow")) {
+            // buttons MENU
             if (470 < Mouse.getX() && Mouse.getX() < 568 && 20 < Mouse.getY() && Mouse.getY() < 83) {
 
                 sbg.enterState(Main.menu.getID(), new FadeOutTransition(new Color(100, 180, 255)), new FadeInTransition(new Color(100, 180, 255)));
+            }
 
-            } // button WYJDZ
-            else if  (670 < Mouse.getX() && Mouse.getX() < 789 && 20 < Mouse.getY() && Mouse.getY() < 83){
+            // button WYJDZ
+        }else if  (670 < Mouse.getX() && Mouse.getX() < 789 && 20 < Mouse.getY() && Mouse.getY() < 83){
                 System.exit(0);
             }
 
         }
     }
-}
+

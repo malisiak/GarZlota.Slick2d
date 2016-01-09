@@ -26,7 +26,7 @@ public class SummaryAfterLevel2 extends Scenery {
     }
     public void update(GameContainer gameContainer, StateBasedGame sbg, int i) throws SlickException {
         if(input.isMousePressed(Input.MOUSE_LEFT_BUTTON)) {
-            mousePressed(sbg, Mouse.getX(), Mouse.getY(), "Summary"); //!!! Zmienic Summary
+            mousePressed(sbg, Mouse.getX(), Mouse.getY(), "SummaryAfterLevel2");
         }
         else{}
 
@@ -37,13 +37,34 @@ public class SummaryAfterLevel2 extends Scenery {
     @Override
     public void render(GameContainer gc, StateBasedGame stateBasedGame, Graphics g) throws SlickException {
 
-        System.out.println("po drugim "+ scoreLevel2);
+    // draw buttons
+
         // draw elements from abstract class Scenery
         drawScenery(g);
-        g.drawString("PODSUMOWANIE PO LEVELU2", 500f, 500f);
-        g.drawString("Twoj wynik: " + scoreLevel2, 600f, 600f);
-        System.out.println(" level + level" + scoreLevel2+Summary.scoreLevel1);
-        System.out.println("z funkcji"+GameStatus.gameScore());
+        // draw buttons
+        drawButton(g,"MENU", 480, 630);
+        drawButton(g,"WYJDZ", 700, 630);
+        System.out.println("x: " + Mouse.getX()+ " y: "+ Mouse.getY());
+
+
+        g.setColor(Color.white);
+        g.setFont(font.chooseFont(40));
+        g.drawString("Brawo!", 540f, 125f);
+        g.setFont(font.chooseFont(30));
+        g.drawString("Udalo Ci sie napełnic gar zlotem!", 370f, 185f);
+        g.drawString("Wynik koncowy: " + GameStatus.gameScore(), 480f, 235f);
+        g.drawString("W drugim poziomie zdobyles: " + scoreLevel2, 350f, 290f);
+        g.drawString("W drugim poziomie zebrales: ", 350f, 335f);
+        g.drawImage(coins, 400f, 390f);
+        g.drawString(" " + GameStatus.amountOfCoins, 520f, 390f);
+
+        g.drawImage(clover4, 400f, 475f);
+        g.drawString("" + GameStatus.amountOfClover4, 530f, 475f);
+
+        g.drawImage(clover3, 400f, 545f);
+        g.drawString("" + GameStatus.amountOfClover3, 530f, 545f);
+
+
     }
 
     @Override

@@ -53,9 +53,9 @@ public class Summary extends Scenery {
 
             // set type and size of font
             g.setColor(Color.white);
-            g.setFont(font.trueTypeFont(font.chooseAwtFont(1, 40)));
+            g.setFont(font.chooseFont(40));
             g.drawString("Brawo!", 540f, 125f);
-            g.setFont(font.trueTypeFont(font.chooseAwtFont(1, 30)));
+            g.setFont(font.chooseFont(30));
             g.drawString("Za toba pierwszy poziom!", 420f, 185f);
             g.drawString("Twoj wynik: " + scoreLevel1, 480f, 235f);
             g.drawString("Zebrales: ", 540f, 290f);
