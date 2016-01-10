@@ -30,6 +30,8 @@ public class Main extends StateBasedGame {
 
 
         // add scene
+
+        this.addState(garZlota);
         this.addState(menu);
         this.addState(ranking);
         this.addState(summaryAl2);
@@ -39,7 +41,7 @@ public class Main extends StateBasedGame {
         this.addState(ranking);
         this.addState(menu);
         this.addState(summary);
-        this.addState(garZlota);
+
         this.addState(level2);
         this.addState(gameOverWindow);
 

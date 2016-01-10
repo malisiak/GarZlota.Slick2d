@@ -17,8 +17,10 @@ import org.newdawn.slick.state.transition.FadeOutTransition;
  */
 public class GarZlota extends Game {
 
-    Image bird;
+
     boolean ifClicked = false;
+    SpriteSheet krasnal;
+    Animation animation;
 
     public void init(GameContainer gc, StateBasedGame stateBasedGame) throws SlickException {
 
@@ -28,7 +30,8 @@ public class GarZlota extends Game {
          */
         initialization (gc);
 
-
+    krasnal = new SpriteSheet("graph/krasnalSzkicPommm.png", 155, 265);
+        animation = new Animation( krasnal, 420);
 
     }
 
@@ -41,7 +44,7 @@ public class GarZlota extends Game {
          function responsible for level time
          Parameters: GameContainer, StateBasedGame, delta
           */
-        gameTime(gc, sbg, delta, Main.garZlota.getID());
+      //  gameTime(gc, sbg, delta, Main.garZlota.getID());
         /*
          create flying elements from class Elements, remove them when are outside game window, and check collision
          Parameters: int stateID, int delta, StateBasedGame sbg
@@ -63,7 +66,7 @@ public class GarZlota extends Game {
         }
 
 
-
+animation.update(delta);
 
     }
 
@@ -72,6 +75,7 @@ public class GarZlota extends Game {
         drawObject(g, rainbowMovedEffect, Main.garZlota.getID());
         spacePressed();
         //drawLeprechanum(ifJump);
+        animation.draw(600f,380f);
 
 
         if(clicked){
