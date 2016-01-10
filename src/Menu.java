@@ -5,11 +5,17 @@ import org.newdawn.slick.state.BasicGameState;
 import org.newdawn.slick.state.StateBasedGame;
 
 /**
- * Created by Martyna on 28.12.2015.
+ *  Menu - first scene of game
  */
 public class Menu extends Scenery {
 
 
+    /**
+     * initialize object
+     * @param gc - The container holing this game
+     * @param sbg - StateBasedGame object
+     * @throws SlickException
+     */
     @Override
     public void init(GameContainer gc, StateBasedGame sbg) throws SlickException {
 
@@ -17,6 +23,13 @@ public class Menu extends Scenery {
         initialization(gc);
     }
 
+    /**
+     * change param per delta
+     * @param gc - The container holing this game
+     * @param sbg - StateBasedGame sbg
+     * @param delta - The amount of time thats passed since last update in milliseconds
+     * @throws SlickException
+     */
     @Override
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
 
@@ -25,9 +38,15 @@ public class Menu extends Scenery {
             mousePressed(sbg, Mouse.getX(), Mouse.getY(), "Menu");
         }
         else{}
-       // System.out.println(mouse);
     }
 
+    /**
+     * draw elements
+     * @param gc - The container holing this game
+     * @param sbg - StateBasedGame sbg
+     * @param g - Graphics object
+     * @throws SlickException
+     */
     @Override
     public void render(GameContainer gc, StateBasedGame sbg, Graphics g) throws SlickException {
 
@@ -56,10 +75,12 @@ public class Menu extends Scenery {
         g.setColor(Color.orange);
         g.setFont(font.chooseFont(40));
         g.drawString("P O W O D Z E N I A !", Main.WIDTH/2 -240 , 555f);
-
-
     }
 
+    /**
+     * return
+     * @return
+     */
     @Override
     public int getID() {
         return 0;

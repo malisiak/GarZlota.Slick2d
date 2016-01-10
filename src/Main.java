@@ -1,6 +1,9 @@
 import org.newdawn.slick.*;
 import org.newdawn.slick.state.*;
 
+/**
+ *  Main class, start program
+ */
 public class Main extends StateBasedGame {
 
 
@@ -15,9 +18,11 @@ public class Main extends StateBasedGame {
     public static Level2 level2;
     public static SummaryAfterLevel2 summaryAl2;
     public static GameOverWindow gameOverWindow;
-    public static Animationn animation;
 
-
+    /**
+     * Main constructor
+     * @param title
+     */
     public Main(String title) {
         super(title);
 
@@ -28,40 +33,25 @@ public class Main extends StateBasedGame {
         level2 = new Level2();
         summaryAl2 = new SummaryAfterLevel2();
         gameOverWindow = new GameOverWindow();
-        animation = new Animationn();
-
 
         // add scene
-
+        this.addState(menu);
         this.addState(garZlota);
-
-        this.addState(animation);
-        this.addState(menu);
-        this.addState(ranking);
-        this.addState(summaryAl2);
-        this.addState(menu);
-        this.addState(summaryAl2);
-        this.addState(garZlota);
-        this.addState(ranking);
-        this.addState(menu);
         this.addState(summary);
-
         this.addState(level2);
-        this.addState(gameOverWindow);
-
-
         this.addState(summaryAl2);
-
+        this.addState(gameOverWindow);
         this.addState(ranking);
-
-
     }
 
+    /**
+     * initialize scenes
+     * @param gb - The container holing this game
+     * @throws SlickException
+     */
     @Override
     public void initStatesList(GameContainer gb) throws SlickException {
 
-        // initialize scenes
-this.getState(animation.getID()).init(gb, this);
        this.getState(garZlota.getID()).init(gb, this);
        this.getState(menu.getID()).init(gb, this);
         this.getState(ranking.getID()).init(gb, this);
@@ -75,6 +65,10 @@ this.getState(animation.getID()).init(gb, this);
     }
 
 
+    /**
+     * Main class
+     * @param args
+     */
     public static void main(String[] args) {
 
         try {
@@ -85,18 +79,14 @@ this.getState(animation.getID()).init(gb, this);
             // set amount of fps
             app.setTargetFrameRate(50);
            // remove String FPS
-            app.setShowFPS(true);
+            app.setShowFPS(false);
             // start game
             app.start();
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-
-
     }
-
 }
 
 

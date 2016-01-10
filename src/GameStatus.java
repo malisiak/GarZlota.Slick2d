@@ -8,55 +8,72 @@ import org.newdawn.slick.opengl.ImageData;
 import org.newdawn.slick.state.StateBasedGame;
 
 /**
- * Created by Martyna on 02.01.2016.
+ * Responsible for game status - this class count result
  */
 public class GameStatus {
 
     // time for level
     static int gameTime = 0;
     // Score
-    static int score =0;
-    private static int gameScore=0;
+    static int score = 0;
+    private static int gameScore = 0;
     // false when time of level is less than 20sek
     static boolean limitTime = false;
 
-    static int  amountOfClover3=0;
-    static int  amountOfClover4=0;
-    static int  amountOfCoins=0;
+    static int amountOfClover3 = 0;
+    static int amountOfClover4 = 0;
+    static int amountOfCoins = 0;
 
 
+    /**
+     * measure time game
+     *
+     * @param delta  The amount of time thats passed since last update in milliseconds
+     * @return
+     */
     public static boolean gameTime(int delta) {
 
+        gameTime = gameTime + delta;
 
-        gameTime= gameTime + delta;
-
-
-        if (gameTime >  7000) {
+        if (gameTime > 20000) {
 
             gameTime = 0;
             return limitTime = true;
 
-        }
-        else return limitTime=false;
+        } else return limitTime = false;
     }
 
-        // return score, which player win in level
-        public static int levelScore() {
-            score = amountOfCoins + amountOfClover4 * 3 - amountOfClover3 * 2;
-            return score ;
-        }
-    // return score, which player win in game
-    public static int gameScore(){
+    /**
+     * return score, which player win in level
+     *
+     * @return
+     */
+
+    public static int levelScore() {
+
+        score = amountOfCoins * 3 + amountOfClover4 * 5 - amountOfClover3 * 5;
+        return score;
+    }
+
+    /**
+     * return score, which player win in game
+     *
+     * @return
+     */
+
+    public static int gameScore() {
         gameScore = Summary.scoreLevel1 + SummaryAfterLevel2.scoreLevel2;
-//        System.out.println("scoreLevel1 " + Summary.scoreLevel1);
-//        System.out.println("scoreLevel2 " + SummaryAfterLevel2.scoreLevel2);
-//        System.out.println("Koncowe: "+ gameScore);
         return gameScore;
-
     }
 
-    // Function return amount of given element
-    public  int Count (String path) {
+    /**
+     * Function return amount of given element
+     *
+     * @param path  image resource
+     * @return
+     */
+
+    public int Count(String path) {
 
         if ("graph/monetapom.png".equals(path)) {
 
@@ -72,8 +89,9 @@ public class GameStatus {
 
             amountOfClover3++;
             return amountOfClover3;
+        } else {
+            return 0;
         }
-        else {return 0;}
     }
 
 

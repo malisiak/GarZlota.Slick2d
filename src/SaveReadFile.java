@@ -1,28 +1,37 @@
 import java.io.*;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Scanner;
+import java.util.List;
 
 /**
- * Created by Martyna on 05.01.2016.
+ * there are a methods responsible for saving and reading files
  */
 public class SaveReadFile {
 
     // SimpleDateFormat object; set format
-    public static SimpleDateFormat simpleDateHere = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss ");
+    public static SimpleDateFormat simpleDateHere = new SimpleDateFormat("yyyy-MM-dd kk:mm:ss");
+    public static boolean readFile = false;
+    public static int bestLevel1 = 0;
+    public static int bestLevel2 = 0;
+    public static int bestTotal = 0;
 
+    /**
+     * save files
+     *
+     * @throws IOException
+     */
     public static void Save() throws IOException {
 
         StringBuilder tekstDoPliku = new StringBuilder();
-        tekstDoPliku.append("Data: " + simpleDateHere.format(new Date()));
-
-        tekstDoPliku.append(" Punkty za poziom 1: " + Summary.scoreLevel1);
-
-        tekstDoPliku.append(" Punkty za poziom 2: " + SummaryAfterLevel2.scoreLevel2);
-
-        tekstDoPliku.append(" Suma punktow: " + GameStatus.gameScore());
-
-        File file = new File("Gar zlota - wynki.txt");
+        SummaryAfterLevel2.scoreLevel2 = GameStatus.levelScore();
+        tekstDoPliku.append(simpleDateHere.format(new Date()));
+        tekstDoPliku.append(";" + Summary.scoreLevel1);
+        tekstDoPliku.append(";" + SummaryAfterLevel2.scoreLevel2);
+        tekstDoPliku.append(";" + GameStatus.gameScore());
+        File file = new File("GarZlota-wyniki.txt");
 
         // create new file if doesn't exists
         if (!file.exists()) {
@@ -32,74 +41,37 @@ public class SaveReadFile {
         FileWriter fw = new FileWriter(file.getAbsoluteFile(), true);
         BufferedWriter bw = new BufferedWriter(fw);
         bw.write(tekstDoPliku.toString());
-        tekstDoPliku.toString();
         bw.newLine();
         bw.close();
-
-        BufferedReader in = null;
-        try {
-            in = new BufferedReader(new FileReader("Gar zlota - wynki.txt"));
-            StreamTokenizer st = new StreamTokenizer(in);
-            st.eolIsSignificant(false);
-            // remove comment handling
-            st.slashSlashComments(false);
-            st.slashStarComments(false);
-
-            while (st.nextToken() != StreamTokenizer.TT_EOF) {
-                if (st.ttype == StreamTokenizer.TT_NUMBER) {
-                    // the default is to treat numbers differently than words
-                    // also the numbers are doubles
-                    System.out.println((int) st.nval);
-                } else {
-                    System.out.println(st.sval);
-                }
-            }
-        } catch (IOException ex) {
-            System.err.println(ex.getMessage());
-        } finally {
-            if (in != null) {
-                try {
-                    in.close();
-                } catch (IOException ex) {
-                }
-            }
-        }
-
-        System.out.println("Zapisano");
     }
 
-    public static void read()  {
+    /**
+     * read files
+     *
+     * @throws IOException
+     */
+    public static void read() throws IOException {
+        if (!SaveReadFile.readFile) {
+            String path = "GarZlota-wyniki.txt";
+            Charset charset = Charset.forName("UTF-8");
+            List<String> lines = Files.readAllLines(Paths.get(path), charset);
+            for (String line : lines) {
 
-      /*  BufferedReader in = null;
-        try {
-            in = new BufferedReader(new FileReader("Gar zlota - wynki.txt"));
-            StreamTokenizer st = new StreamTokenizer(in);
-            st.eolIsSignificant(false);
-            // remove comment handling
-            st.slashSlashComments(false);
-            st.slashStarComments(false);
-
-            while (st.nextToken() != StreamTokenizer.TT_EOF) {
-                if (st.ttype == StreamTokenizer.TT_NUMBER) {
-                    // the default is to treat numbers differently than words
-                    // also the numbers are doubles
-                    System.out.println((int) st.nval);
-                } else {
-                    System.out.println(st.sval);
+                String[] parts = line.split(";");
+                if (Integer.parseInt(parts[1]) > bestLevel1) {
+                    bestLevel1 = Integer.parseInt(parts[1]);
+                }
+                if (Integer.parseInt(parts[2]) > bestLevel2) {
+                    bestLevel2 = Integer.parseInt(parts[2]);
+                }
+                if (Integer.parseInt(parts[3]) > bestTotal) {
+                    bestTotal = Integer.parseInt(parts[3]);
                 }
             }
-        } catch (IOException ex) {
-            System.err.println(ex.getMessage());
-        } finally {
-            if (in != null) {
-                try {
-                    in.close();
-                } catch (IOException ex) {
-                }
-            }
-        }*/
-
+            SaveReadFile.readFile = true;
+        }
     }
 }
+
 
 

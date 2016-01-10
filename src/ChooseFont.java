@@ -2,8 +2,13 @@ import org.newdawn.slick.TrueTypeFont;
 
 import java.awt.Font;
 
+/**
+ * Contains various kind of font
+ */
 public class ChooseFont {
-    // font object
+    /**
+     * font object
+     */
     Font awtFont20 = new Font("Verdana", Font.BOLD, 20);
     TrueTypeFont font20 = new TrueTypeFont(awtFont20, true);
     Font awtFont30 = new Font("Verdana", Font.BOLD, 30);
@@ -13,26 +18,28 @@ public class ChooseFont {
     Font awtFont50 = new Font("Verdana", Font.BOLD, 50);
     TrueTypeFont font50 = new TrueTypeFont(awtFont50, true);
 
-
-    public TrueTypeFont chooseFont(int sizeFont){
-        if ( sizeFont == 20){
+    /**
+     * choose appropriate kind of font
+     */
+    public TrueTypeFont chooseFont(int sizeFont) {
+        if (sizeFont == 20) {
             return font20;
-        }
-        else if (sizeFont == 30){
+        } else if (sizeFont == 30) {
             return font30;
-        }
-        else if (sizeFont == 40){
+        } else if (sizeFont == 40) {
             return font40;
-        }
-        else if ( sizeFont == 50){
+        } else if (sizeFont == 50) {
             return font50;
         }
-    return font20;
+        return font20;
     }
 
-    public int getWidthStr(String str, TrueTypeFont font){
+    /**
+     * return width of given string
+     */
+    public int getWidthStr(String str, TrueTypeFont font) {
 
-       return font.getWidth(str);
+        return font.getWidth(str);
     }
 
 }
