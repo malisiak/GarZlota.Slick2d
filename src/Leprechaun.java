@@ -1,8 +1,5 @@
 import javafx.beans.NamedArg;
-import org.newdawn.slick.Color;
-import org.newdawn.slick.Graphics;
-import org.newdawn.slick.Image;
-import org.newdawn.slick.SlickException;
+import org.newdawn.slick.*;
 import org.newdawn.slick.geom.Rectangle;
 import org.newdawn.slick.state.StateBasedGame;
 import org.newdawn.slick.state.transition.FadeInTransition;
@@ -14,7 +11,9 @@ import java.util.ArrayList;
 /**
  * Created by Martyna on 29.12.2015.
  */
-public class Leprechaun extends Image {
+public class Leprechaun extends Animation {
+
+
 
     // variable of Leprechaun position
     private float x;
@@ -24,13 +23,17 @@ public class Leprechaun extends Image {
     GameStatus gameStatus = new GameStatus();
 
     // konstruktor Leprechaun
-    public Leprechaun(float x, float y)throws SlickException{
+    public Leprechaun(float x)throws SlickException{
 
-       super("graph/krasnal.png");
+        /*
+        Parameters:
+        frames - The sprite sheet containing the frames
+        duration - The duration each frame should be displayed for
+         */
+       super(new SpriteSheet("graph/krasnalSzkicPommm.png", 150, 245), 420);
 
         this.setX(x);
-       // this.setY(y);
-        this.y = y;
+        //this.setY(y);
 
 
     }
@@ -65,6 +68,7 @@ public class Leprechaun extends Image {
 
     // set and return leprechaun position when space is pressed
     public float jump(float y){
+        stop();
         setY(y);
         return getY();
 
@@ -73,8 +77,12 @@ public class Leprechaun extends Image {
     // function detect collision by intersects method which takes shapes - that why we have to put imagine in rectangle
     public void checkCollision(Elements e, ArrayList list, int i, StateBasedGame sbg){
 
-        Rectangle r = new Rectangle(e.getX() - e.getWidth()/2, e.getY() - e.getHeight()/2, e.getWidth(), e.getHeight());
-        Rectangle l = new Rectangle(this.getX()-this.getWidth()/2, this.getY() - this.getHeight()/2, this.getWidth(), this.getHeight());
+        //Rectangle r = new Rectangle(e.getX() - e.getWidth()/2, e.getY() - e.getHeight()/2, e.getWidth(), e.getHeight());
+       // Rectangle l = new Rectangle(this.getX()-this.getWidth()/2, this.getY() - this.getHeight()/2, this.getWidth(), this.getHeight());
+        Rectangle r = new Rectangle(e.getX(), e.getY(), e.getWidth(), e.getHeight());
+        Rectangle l = new Rectangle(this.getX(), this.getY()+ 20, this.getWidth() - 40, this.getHeight()- 30);
+
+
 
         if( l.intersects(r)){
             // collision with bird's elements

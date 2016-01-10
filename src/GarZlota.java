@@ -30,8 +30,7 @@ public class GarZlota extends Game {
          */
         initialization (gc);
 
-    krasnal = new SpriteSheet("graph/krasnalSzkicPommm.png", 155, 265);
-        animation = new Animation( krasnal, 420);
+
 
     }
 
@@ -66,16 +65,17 @@ public class GarZlota extends Game {
         }
 
 
-animation.update(delta);
+        //animation.update(delta);
 
     }
 
     public void render(GameContainer gameContainer, StateBasedGame stateBasedGame, Graphics g) throws SlickException {
 
-        drawObject(g, rainbowMovedEffect, Main.garZlota.getID());
+        drawObject( g,rainbowMovedEffect, Main.garZlota.getID());
         spacePressed();
         //drawLeprechanum(ifJump);
-        animation.draw(600f,380f);
+        //animation.draw(600f,380f);
+
 
 
         if(clicked){

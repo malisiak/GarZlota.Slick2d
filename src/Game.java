@@ -62,7 +62,7 @@ public abstract class Game extends BasicGameState {
         //rainbow initialization
         rainbow = new Rainbow();
         // leprechaun initialization; arguments - position: x,y
-        leprechaun = new Leprechaun(200, 400);
+        leprechaun = new Leprechaun(200f);
 
         // collection initialization
        // elements = new ArrayList<Elements>();
@@ -211,7 +211,7 @@ public abstract class Game extends BasicGameState {
             }
         }
 
-    public void drawObject(Graphics g, int j, int stateID) throws SlickException{
+    public void drawObject( Graphics g,  int j, int stateID) throws SlickException{
 
         background.draw(0,0);
 
@@ -224,6 +224,7 @@ public abstract class Game extends BasicGameState {
 
         // draw elements
         for (Elements element : elements) {
+
             element.draw(element.getX(), element.getY());
 
         }
@@ -261,13 +262,18 @@ public abstract class Game extends BasicGameState {
 
         }
     }*/
+    // draw leprechaun depends on key pressed or not
     public void spacePressed(){
         if (input.isKeyDown(Input.KEY_SPACE)){
             leprechaun.draw(leprechaun.getX(), leprechaun.jump(190f));
         }
         else {
-            leprechaun.setY(400);
+            // start animation
+
+            leprechaun.start();
+            leprechaun.setY(360);
             leprechaun.draw(leprechaun.getX(), leprechaun.getY());
+
 
         }
     }

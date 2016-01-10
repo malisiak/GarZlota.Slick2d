@@ -15,6 +15,7 @@ public class Main extends StateBasedGame {
     public static Level2 level2;
     public static SummaryAfterLevel2 summaryAl2;
     public static GameOverWindow gameOverWindow;
+    public static Animationn animation;
 
 
     public Main(String title) {
@@ -27,11 +28,14 @@ public class Main extends StateBasedGame {
         level2 = new Level2();
         summaryAl2 = new SummaryAfterLevel2();
         gameOverWindow = new GameOverWindow();
+        animation = new Animationn();
 
 
         // add scene
 
         this.addState(garZlota);
+
+        this.addState(animation);
         this.addState(menu);
         this.addState(ranking);
         this.addState(summaryAl2);
@@ -57,7 +61,7 @@ public class Main extends StateBasedGame {
     public void initStatesList(GameContainer gb) throws SlickException {
 
         // initialize scenes
-
+this.getState(animation.getID()).init(gb, this);
        this.getState(garZlota.getID()).init(gb, this);
        this.getState(menu.getID()).init(gb, this);
         this.getState(ranking.getID()).init(gb, this);
