@@ -75,7 +75,7 @@ public class Leprechaun extends Animation {
     /**
      * set and return leprechaun position when space is pressed
      *
-     * @param y - y position
+     * @param y y position
      * @return
      */
     public float jump(float y) {
@@ -88,10 +88,10 @@ public class Leprechaun extends Animation {
     /**
      * function detect collision by intersects method which takes shapes - that why we have to put imagine in rectangle
      *
-     * @param e - object from class Elements
-     * @param list - ArrayList object
-     * @param i - index number from arraylist
-     * @param sbg - StateBasedGame
+     * @param e  object from class Elements
+     * @param list ArrayList object
+     * @param i index number from arraylist
+     * @param sbg StateBasedGame
      */
     public void checkCollision(Elements e, ArrayList list, int i, StateBasedGame sbg) {
 

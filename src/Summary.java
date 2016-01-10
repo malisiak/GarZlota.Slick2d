@@ -16,8 +16,8 @@ public class Summary extends Scenery {
     /**
      * initialize object
      *
-     * @param gc - The container holing this game
-     * @param stateBasedGame - StateBasedGame object
+     * @param gc  The container holing this game
+     * @param stateBasedGame  StateBasedGame object
      * @throws SlickException
      */
     @Override
@@ -32,9 +32,9 @@ public class Summary extends Scenery {
     /**
      * update param per delta
      *
-     * @param gameContainer - The container holing this game
-     * @param sbg - StateBasedGame object
-     * @param i - The amount of time thats passed since last update in milliseconds
+     * @param gameContainer The container holing this game
+     * @param sbg StateBasedGame object
+     * @param i The amount of time thats passed since last update in milliseconds
      * @throws SlickException
      */
     @Override
@@ -52,7 +52,7 @@ public class Summary extends Scenery {
      *
      * @param gameContainer - The container holing this game
      * @param stateBasedGame - StateBasedGame object
-     * @param g - Graphics object
+     * @param g Graphics object
      * @throws SlickException
      */
     @Override

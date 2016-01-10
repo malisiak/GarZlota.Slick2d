@@ -19,10 +19,10 @@ public class Panel {
      * draw elements of panel
      *
      * @param g - graphics object
-     * @param amountOfCoins - amount of coins
-     * @param amountOfClover4 - amount of 4-leaf clover
-     * @param amountOfClover3 - amount of 3-leaf clover
-     * @param stateID - number of scene
+     * @param amountOfCoins  amount of coins
+     * @param amountOfClover4  amount of 4-leaf clover
+     * @param amountOfClover3 amount of 3-leaf clover
+     * @param stateID number of scene
      * @throws SlickException
      */
     public void drawPanel(Graphics g, int amountOfCoins, int amountOfClover4, int amountOfClover3, int stateID) throws SlickException {

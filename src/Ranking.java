@@ -13,8 +13,8 @@ public class Ranking extends Scenery {
     /**
      * initialize object
      *
-     * @param gc - The container holing this game
-     * @param sbg - StateBasedGame object
+     * @param gc  The container holing this game
+     * @param sbg  StateBasedGame object
      * @throws SlickException
      */
     @Override
@@ -30,9 +30,9 @@ public class Ranking extends Scenery {
     /**
      * change param per delta
      *
-     * @param gc - The container holing this game
-     * @param sbg - StateBasedGame object
-     * @param delta - The amount of time thats passed since last update in milliseconds
+     * @param gc  The container holing this game
+     * @param sbg StateBasedGame object
+     * @param delta The amount of time thats passed since last update in milliseconds
      * @throws SlickException
      */
     @Override
@@ -48,9 +48,9 @@ public class Ranking extends Scenery {
     /**
      * draw elements
      *
-     * @param gc - The container holing this game
-     * @param sbg - StateBasedGame object
-     * @param g- Graphic object
+     * @param gc The container holing this game
+     * @param sbg StateBasedGame object
+     * @param g Graphic object
      * @throws SlickException
      */
     @Override

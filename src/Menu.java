@@ -25,9 +25,9 @@ public class Menu extends Scenery {
 
     /**
      * change param per delta
-     * @param gc - The container holing this game
-     * @param sbg - StateBasedGame sbg
-     * @param delta - The amount of time thats passed since last update in milliseconds
+     * @param gc  The container holing this game
+     * @param sbg StateBasedGame sbg
+     * @param delta  The amount of time thats passed since last update in milliseconds
      * @throws SlickException
      */
     @Override
@@ -42,9 +42,9 @@ public class Menu extends Scenery {
 
     /**
      * draw elements
-     * @param gc - The container holing this game
-     * @param sbg - StateBasedGame sbg
-     * @param g - Graphics object
+     * @param gc The container holing this game
+     * @param sbg StateBasedGame sbg
+     * @param g Graphics object
      * @throws SlickException
      */
     @Override

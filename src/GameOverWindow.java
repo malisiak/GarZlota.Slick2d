@@ -70,5 +70,6 @@ public class GameOverWindow extends Scenery {
         if (input.isMousePressed(Input.MOUSE_LEFT_BUTTON)) {
             mousePressed(sbg, Mouse.getX(), Mouse.getY(), "GameOverWindow");
         }
+
     }
 }

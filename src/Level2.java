@@ -16,8 +16,8 @@ public class Level2 extends Game {
     /**
      * initialize object
      *
-     * @param gc - The container holing this game
-     * @param stateBasedGame - StateBasedGame object
+     * @param gc  The container holing this game
+     * @param stateBasedGame  StateBasedGame object
      * @throws SlickException
      */
     public void init(GameContainer gc, StateBasedGame stateBasedGame) throws SlickException {
@@ -32,9 +32,9 @@ public class Level2 extends Game {
     /**
      * change param per delta
      *
-     * @param gc - The container holing this game
-     * @param sbg - StateBasedGame
-     * @param delta - The amount of time thats passed since last update in milliseconds
+     * @param gc The container holing this game
+     * @param sbg StateBasedGame
+     * @param delta The amount of time thats passed since last update in milliseconds
      * @throws SlickException
      */
     public void update(GameContainer gc, StateBasedGame sbg, int delta) throws SlickException {
@@ -60,9 +60,9 @@ public class Level2 extends Game {
     /**
      * draw elements
      *
-     * @param gameContainer - The container holing this game
-     * @param stateBasedGame - StateBasedGame object
-     * @param g - Graphic object
+     * @param gameContainer The container holing this game
+     * @param stateBasedGame  StateBasedGame object
+     * @param g Graphic object
      * @throws SlickException
      */
     @Override
@@ -75,8 +75,8 @@ public class Level2 extends Game {
     /**
      * the enter method is called whenever you transition into the state; restart parameters
      *
-     * @param c - The container holing this game
-     * @param g - StateBasedGame object
+     * @param c The container holing this game
+     * @param g StateBasedGame object
      */
     public void enter(GameContainer c, StateBasedGame g) {
         restartGame();

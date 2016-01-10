@@ -12,8 +12,8 @@ public class SummaryAfterLevel2 extends Scenery {
     /**
      * initialize object
      *
-     * @param gc - The container holing this game
-     * @param stateBasedGame - StateBasedGame object
+     * @param gc The container holing this game
+     * @param stateBasedGame StateBasedGame object
      * @throws SlickException
      */
     @Override
@@ -28,9 +28,9 @@ public class SummaryAfterLevel2 extends Scenery {
     /**
      * update param per delta
      *
-     * @param gameContainer - The container holing this game
-     * @param sbg - StateBasedGame object
-     * @param i - The amount of time thats passed since last update in milliseconds
+     * @param gameContainer The container holing this game
+     * @param sbg StateBasedGame object
+     * @param i The amount of time thats passed since last update in milliseconds
      * @throws SlickException
      */
     public void update(GameContainer gameContainer, StateBasedGame sbg, int i) throws SlickException {
@@ -43,9 +43,9 @@ public class SummaryAfterLevel2 extends Scenery {
     /**
      * draw elements
      *
-     * @param gc - The container holing this game
-     * @param stateBasedGame - StateBasedGame object
-     * @param g - graphics object
+     * @param gc  The container holing this game
+     * @param stateBasedGame  StateBasedGame object
+     * @param g graphics object
      * @throws SlickException
      */
     @Override

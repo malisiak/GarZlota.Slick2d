@@ -30,7 +30,7 @@ public abstract class Scenery extends BasicGameState {
     /**
      * Function is responsible for object's initialization
      *
-     * @param gc
+     * @param gc The container holing this game
      * @throws SlickException
      */
 
@@ -48,7 +48,7 @@ public abstract class Scenery extends BasicGameState {
     /**
      * Function is responsible for image initialization
      *
-     * @param gc - The container holing this game
+     * @param gc The container holing this game
      * @throws SlickException
      */
     public void imageInitialization(GameContainer gc) throws SlickException {
@@ -61,7 +61,7 @@ public abstract class Scenery extends BasicGameState {
     /**
      * Function draw object
      *
-     * @param g - Graphics object
+     * @param g Graphics object
      * @throws SlickException
      */
 
@@ -74,10 +74,10 @@ public abstract class Scenery extends BasicGameState {
     /**
      * function set color and size of font, set string in rectangle and its position, draw rectangle and string
      *
-     * @param g - Graphics object
-     * @param str - text to show
-     * @param xpos - button x position
-     * @param ypos - button y position
+     * @param g  Graphics object
+     * @param str text to show
+     * @param xpos  button x position
+     * @param ypos  button y position
      */
     public static void drawButton(Graphics g, String str, int xpos, int ypos) {
 
@@ -105,10 +105,10 @@ public abstract class Scenery extends BasicGameState {
     /**
      * button service
      *
-     * @param sbg - StateBasedGame object
-     * @param mouseX - mouse x position
-     * @param mouseY - mouse y position
-     * @param nameClass - name of class
+     * @param sbg StateBasedGame object
+     * @param mouseX mouse x position
+     * @param mouseY  mouse y position
+     * @param nameClass  name of class
      */
     public void mousePressed(StateBasedGame sbg, int mouseX, int mouseY, String nameClass) {
 
@@ -187,8 +187,9 @@ public abstract class Scenery extends BasicGameState {
             }
 
             // button WYJDZ
-        } else if (670 < Mouse.getX() && Mouse.getX() < 789 && 20 < Mouse.getY() && Mouse.getY() < 83) {
-            System.exit(0);
+            else if (670 < Mouse.getX() && Mouse.getX() < 789 && 20 < Mouse.getY() && Mouse.getY() < 83) {
+                System.exit(0);
+            }
         }
 
     }

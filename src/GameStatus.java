@@ -35,7 +35,7 @@ public class GameStatus {
 
         gameTime = gameTime + delta;
 
-        if (gameTime > 20000) {
+        if (gameTime > 30000) {
 
             gameTime = 0;
             return limitTime = true;

@@ -99,9 +99,9 @@ public class Elements extends Image {
             path = "graph/kon3pom.png";
         }
         /**
-         * image of bird - perform only at level 2, appear maximum 3 time in level2
+         * image of bird - perform only at level 2, appear maximum 8 time in level2
          */
-        if ((10 <= number && number <= 11) && amountOfBird < 3) {
+        if ((10 <= number && number <= 11) && amountOfBird < 9) {
 
             amountOfBird++;
             path = "graph/bird.png";

@@ -35,6 +35,7 @@ public class Main extends StateBasedGame {
         gameOverWindow = new GameOverWindow();
 
         // add scene
+
         this.addState(menu);
         this.addState(garZlota);
         this.addState(summary);
@@ -46,7 +47,7 @@ public class Main extends StateBasedGame {
 
     /**
      * initialize scenes
-     * @param gb - The container holing this game
+     * @param gb  The container holing this game
      * @throws SlickException
      */
     @Override

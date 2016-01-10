@@ -20,9 +20,9 @@ public class Rainbow {
     /**
      * effect rainbow movement
      *
-     * @param g
-     * @param i
-     * @param j
+     * @param g Graphic object
+     * @param i index od color array
+     * @param j describe rainbow movement
      * @return
      */
     public Curve drawRainbow(Graphics g, int i, int j) {
@@ -46,7 +46,7 @@ public class Rainbow {
     /**
      * rainbow image for class  extends Scenery
      *
-     * @param g - graphics object
+     * @param g graphics object
      * @return
      * @throws SlickException
      */
